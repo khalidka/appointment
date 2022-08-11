@@ -1,0 +1,47 @@
+<%= form_with(model: message) do |form| %>
+  <% if message.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                  <%= form.label :send_time, style: "display: block" %>
+                  <%= form.datetime_field :send_time, class:"form-control" %>
+                </div>
+                <div class="col-md-6">
+                  <%= form.label :text, style: "display: block" %>
+                  <%= form.text_area :text, class:"form-control" %>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<div>
+   <%= form.submit class:"btn btn-dark" %>
+</div>
+
+    
+      
+      
+<% end %>

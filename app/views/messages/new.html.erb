@@ -1,0 +1,15 @@
+<h1>New message</h1>
+
+<%= turbo_frame_tag @message do %>
+  <h4>Notifications</h4>
+  <div class="col d-flex flex-row-reverse">
+    <%= link_to 'Add New Notification', new_message_path, class: "btn btn-primary" %>
+  </div>
+  <%= render "form", message: @message %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to messages", messages_path %>
+</div>
